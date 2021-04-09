@@ -40,6 +40,12 @@
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
+        "lint-dry-run": [
+            "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix . --rules=@PhpCsFixer --verbose --dry-run"
+        ],
+        "lint": [
+            "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix . --rules=@PhpCsFixer"
+        ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
