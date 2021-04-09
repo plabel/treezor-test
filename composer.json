@@ -22,7 +22,6 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3",
         "codeception/module-phpbrowser": "^1.0.0",
         "codeception/module-asserts": "^1.0.0"
     },
@@ -53,7 +52,10 @@
             "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix . "
         ],
         "unit-test": [
-            "composer run-script lint && ./vendor/bin/phpunit --coverage-text"
+            "composer run-script lint && php vendor/bin/codecept run unit --coverage"
+        ],
+        "e2e-test": [
+            "php vendor/bin/codecept run acceptance"
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
