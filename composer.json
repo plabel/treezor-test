@@ -49,11 +49,8 @@
         "lint": [
             "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix . "
         ],
-        "unit-test": [
-            "composer run-script lint && ./vendor/bin/phpunit --coverage-text"
-        ],
-        "e2e-test": [
-            "./vendor/bin/phpunit tests/Feature/"
+        "test": [
+            "composer run-script lint && php artisan test --coverage-text"
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"

@@ -1,6 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 final class ExampleTest extends TestCase
 {
     public function testCanBeCreatedFromValidEmailAddress(): void
