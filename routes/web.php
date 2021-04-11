@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UtilisateurController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/utilisateurs/{id}', function () {
     return view('welcome');
-});
+})->name('utilisateurs.show');
+
+Route::get('/create/utilisateurs', function () {
+    return view('create');
+})->name('utilisateurs.create');
+
+Route::post('/utilisateurs', [UtilisateurController::class, 'store'])
+    ->name('utilisateurs.store')
+;
