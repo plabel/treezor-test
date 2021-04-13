@@ -52,6 +52,9 @@
         "test": [
             "composer run-script lint && php artisan test --coverage-text"
         ],
+        "feature-test": [
+            "php artisan test tests/Feature --coverage-text"
+        ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]

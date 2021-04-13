@@ -17,13 +17,17 @@ class UtilisateurControllerStoreTest extends TestCase
     {
         $fake_data = [
             'nom' => 'Sally',
-            'prenom' => 'Sally jr',
+            'prenom' => 'Sally',
             'email' => 'sally.jr@google.com',
-            'date_naissance' => '1-1-1999',
-            'actif' => true,
+            'date_naissance' => '1999-01-01',
+            'actif' => '0',
         ];
-        $response = $this->post('/utilisateurs', $fake_data);
 
-        $response->assertStatus(201);
-    }
+        $response = $this->withHeaders(['X-CSRF-TOKEN' => csrf_token()])
+        ->post('/utilisateurs', $fake_data);
+        $redirect_url = $response->dumpHeaders()->getTargetUrl();
+
+
+        $this->assertMatchesRegularExpression("/\/utilisateurs\/\d+$/",$redirect_url);
+      }
 }

@@ -9,15 +9,14 @@ class UtilisateurController extends Controller
 {
     public function store(StoreUtilisateurRequest $request)
     {
-        var_dump($request);
         $utilisateur = Utilisateur::create([
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
+            'email' => $request->input('email'),
             'date_naissance' => $request->input('date_naissance'),
             'actif' => $request->input('actif'),
         ]);
-        var_dump($utilisateur);
 
-        return redirect()->route('utilisateurs.show');
+        return redirect()->route('utilisateurs.show',["id" => $utilisateur->id]);
     }
 }
