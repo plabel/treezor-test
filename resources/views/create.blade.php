@@ -1,9 +1,9 @@
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Créer Utilisateur</title>
-  </head>
-  <body>
+@extends('layout')
+
+@section('title', 'Créer Utilisateur')
+
+
+@section('content')
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -28,5 +28,4 @@
     </div>
     <button type="submit">envoyer</button>
   </form>
-  </body>
-</html>
+@endsection

@@ -14,18 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::permanentRedirect('/', '/utilisateurs');
 
-Route::get('/utilisateurs/{id}', function ($id) {
-    return view('welcome');
-})->name('utilisateurs.show');
 
 Route::get('/create/utilisateurs', function () {
     return view('create');
 })->name('utilisateurs.create');
 
 Route::resource('utilisateurs', UtilisateurController::class)->only([
-    'store',
+    'store','show','index','edit','destroy','update'
 ]);

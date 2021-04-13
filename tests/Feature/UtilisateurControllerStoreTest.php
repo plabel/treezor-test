@@ -24,10 +24,11 @@ class UtilisateurControllerStoreTest extends TestCase
         ];
 
         $response = $this->withHeaders(['X-CSRF-TOKEN' => csrf_token()])
-        ->post('/utilisateurs', $fake_data);
-        $redirect_url = $response->dumpHeaders()->getTargetUrl();
+            ->post('/utilisateurs', $fake_data)
+        ;
+        $redirect_url = $response->getTargetUrl();
+        $regex_utilisateur_show_uri = '/\\/utilisateurs\\/\\d+$/';
 
-
-        $this->assertMatchesRegularExpression("/\/utilisateurs\/\d+$/",$redirect_url);
-      }
+        $this->assertMatchesRegularExpression($regex_utilisateur_show_uri, $redirect_url);
+    }
 }

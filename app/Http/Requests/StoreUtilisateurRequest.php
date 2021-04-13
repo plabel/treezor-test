@@ -14,9 +14,9 @@ class StoreUtilisateurRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => 'required|string|size:2',
-            'prenom' => 'required|string|size:2',
-            'email' => 'required|email',
+            'nom' => 'required|string|min:2',
+            'prenom' => 'required|string|min:2',
+            'email' => 'required|email|unique:App\Models\Utilisateur,email',
             'date_naissance' => 'required|date',
             'actif' => 'required|boolean',
         ];
