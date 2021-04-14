@@ -20,9 +20,7 @@
     <input required type="email" name="email" value="">
     <input required type="date" name="date_naissance" value="">
     <div>
-      <label for="actif">Actif</label>
-      <select class="" name="actif">
-        <option value="0">non</option>
+      <select hidden class="" name="actif">
         <option value="1">oui</option>
       </select>
     </div>

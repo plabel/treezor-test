@@ -18,7 +18,6 @@ class UpdateUtilisateurRequest extends FormRequest
             'prenom' => 'string|min:2',
             'email' => 'email',
             'date_naissance' => 'date',
-            'actif' => 'boolean',
         ];
     }
 }

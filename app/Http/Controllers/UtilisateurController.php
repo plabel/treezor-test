@@ -10,9 +10,11 @@ class UtilisateurController extends Controller
 {
     public function destroy($id)
     {
-        Utilisateur::destroy($id);
+        $utilisateur = Utilisateur::find($id);
+        $utilisateur->actif = false;
+        $utilisateur->save();
 
-        return redirect()->route('utilisateurs.index');
+        return redirect()->route('utilisateurs.show', [$utilisateur]);
     }
 
     public function store(StoreUtilisateurRequest $request)
@@ -43,9 +45,6 @@ class UtilisateurController extends Controller
         }
         if ($request->input('date_naissance')) {
             $utilisateur->date_naissance = $request->input('date_naissance');
-        }
-        if ($request->input('actif')) {
-            $utilisateur->actif = $request->input('actif');
         }
 
         if ($utilisateur->isDirty()) {
