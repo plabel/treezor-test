@@ -15,15 +15,27 @@
     @endif
   <form action="{{route('utilisateurs.store')}}" method="POST">
     @csrf
-    <input required type="text" name="nom" value="">
-    <input required type="text" name="prenom" value="">
-    <input required type="email" name="email" value="">
-    <input required type="date" name="date_naissance" value="">
-    <div>
-      <select hidden class="" name="actif">
+    <div class="mb-3">
+      <label for="">Nom</label>
+      <input class="form-control" required type="text" name="nom" value="">
+    </div>
+    <div class="mb-3">
+      <label for="">Prenom</label>
+      <input class="form-control" required type="text" name="prenom" value="">
+    </div>
+    <div class="mb-3">
+      <label for="">Date de naissance</label>
+      <input class="form-control" required type="date" name="date_naissance" value="">
+    </div>
+    <div class="mb-3">
+      <label for="">Email</label>
+      <input class="form-control" required type="email" name="email" value="">
+    </div>
+    <div class="mb-3">
+      <select  hidden class="form-select" name="actif">
         <option value="1">oui</option>
       </select>
     </div>
-    <button type="submit">envoyer</button>
+    <button class="btn btn-primary" type="submit">envoyer</button>
   </form>
 @endsection

@@ -5,11 +5,17 @@
     </head>
     <body>
         <x-navbar/>
-        <h1>@yield('title')</h1>
+        <hr>
         <div class="container">
-            @yield('content')
+          <div class="row justify-content-md-center">
+            <div class="col-sm-8">
+              @yield('content')
+            </div>
+            <div class="col-sm-12">
+            </div>
+          </div>
         </div>
-        <script src="/bootstrap.bundle.min.js" type="text/javascript">          
+        <script src="/bootstrap.bundle.min.js" type="text/javascript">
         </script>
     </body>
 </html>

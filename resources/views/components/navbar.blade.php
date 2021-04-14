@@ -14,5 +14,8 @@
         </li>
       </ul>
     </div>
+    <span class="navbar-text">
+      / @yield('title')
+    </span>
   </div>
 </nav>
