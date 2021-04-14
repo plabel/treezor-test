@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Log;
 use Closure;
 use Illuminate\Http\Request;
-use App\Models\Log;
 
 class WsLogger
 {
@@ -18,7 +18,7 @@ class WsLogger
         Log::create([
             'ip' => $request->getClientIp(),
             'route' => $request->getRequestUri(),
-            'date' => date("Y-m-d"),
+            'date' => date('Y-m-d'),
         ]);
 
         return $next($request);

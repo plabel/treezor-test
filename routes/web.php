@@ -16,11 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::permanentRedirect('/', '/utilisateurs');
 
-
 Route::get('/create/utilisateurs', function () {
     return view('create');
 })->name('utilisateurs.create');
 
 Route::resource('utilisateurs', UtilisateurController::class)->only([
-    'store','show','index','edit','destroy','update'
+    'store', 'show', 'index', 'edit', 'destroy', 'update',
 ]);
